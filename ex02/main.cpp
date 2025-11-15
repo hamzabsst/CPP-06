@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 17:36:56 by hbousset          #+#    #+#             */
-/*   Updated: 2025/11/15 17:38:53 by hbousset         ###   ########.fr       */
+/*   Updated: 2025/11/15 17:57:53 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,37 @@
 
 int main()
 {
-	Base* base = new Base();
-	A* a = new A();
-	B* b = new B();
-	C* c = new C();
+	Base* random1 = generate();
+	std::cout << "Identify by pointer: ";
+	identify(random1);
+	std::cout << "Identify by reference: ";
+	identify(*random1);
+	std::cout << std::endl;
 
-	std::cout << "Base created" << std::endl;
-	std::cout << "A created" << std::endl;
-	std::cout << "B created" << std::endl;
-	std::cout << "C created" << std::endl;
+	delete random1;
 
-	delete base;
+
+	Base* a = new A();
+	std::cout << "Created A - Identify by pointer: ";
+	identify(a);
+	std::cout << "Created A - Identify by reference: ";
+	identify(*a);
+	std::cout << std::endl;
+
+	Base* b = new B();
+	std::cout << "Created B - Identify by pointer: ";
+	identify(b);
+	std::cout << "Created B - Identify by reference: ";
+	identify(*b);
+	std::cout << std::endl;
+
+	Base* c = new C();
+	std::cout << "Created C - Identify by pointer: ";
+	identify(c);
+	std::cout << "Created C - Identify by reference: ";
+	identify(*c);
+	std::cout << std::endl;
+
 	delete a;
 	delete b;
 	delete c;
